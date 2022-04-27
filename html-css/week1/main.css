@@ -9,6 +9,10 @@ img{
   border-radius: 25px;;
   margin :10px;
 }
+
+.left-col h2{
+text-align: center;
+}
 .center{
     display: block;
   margin-left: auto;
@@ -22,17 +26,19 @@ img{
     width: 30%;
     height: 100%;
     float:left;
-    background-color: rgb(236, 246, 203);
-    color:rgb(104, 46, 5);
+    background-color: rgb(99, 3, 14);
+    color:rgb(242, 236, 232);
 }
 .right-col{
     width:70%;
     float:left;
-    background-color: honeydew;
+    background-color: rgb(242, 236, 232);
+   /* color: rgb(99, 3, 14);*/
+   color: #333333;;
  
 }
 .icon-style{
-    color: rgb(77, 34, 117);
+    color: rgb(242, 236, 232);
 }
 
 ul.no-bullets {
@@ -56,9 +62,14 @@ ul.horizontal-list li a {
 ul.horizontal-list li a:hover {
   background-color: #111111;
 }
-.spacing
+/*
+.right-col h2{
+  background-color:rgb(99, 3, 14);
+  color:rgb(242, 236, 232);
+}*/
+.left-col h2,h3,li,a, p>i,h3+p
 {
-    margin: 10px 10px 10px 10px;
-    padding: 2px 2px 2px 2px;
+    margin: 8px 10px 8px 10px;
+    padding: 1px 1px 1px 1px;
 }
 
