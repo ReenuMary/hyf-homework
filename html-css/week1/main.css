@@ -1,0 +1,42 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+  }
+  body {font-family: "Roboto", sans-serif}
+img{
+  width: 50px;
+  border-radius: 25px;;
+  margin :10px;
+}
+.center{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.container div{
+    min-height: 800px;
+}
+.left-col{
+    width: 30%;
+    height: 100%;
+    float:left;
+    background-color: rgb(236, 246, 203);
+    color:rgb(104, 46, 5);
+}
+.right-col{
+    width:70%;
+    float:left;
+    background-color: honeydew;
+ 
+}
+.icon-style{
+    color: rgb(77, 34, 117);
+}
+.spacing
+{
+    margin: 10px 10px 10px 10px;
+    padding: 2px 2px 2px 2px;
+}
+
