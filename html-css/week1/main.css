@@ -34,6 +34,28 @@ img{
 .icon-style{
     color: rgb(77, 34, 117);
 }
+
+ul.no-bullets {
+  list-style-type: none; 
+}
+ul.horizontal-list{
+  overflow: hidden;
+  background-color: #333333;
+}
+ul.horizontal-list li{
+  float: left;
+}
+ul.horizontal-list li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+ul.horizontal-list li a:hover {
+  background-color: #111111;
+}
 .spacing
 {
     margin: 10px 10px 10px 10px;
