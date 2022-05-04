@@ -67,13 +67,13 @@ main{
 
 .left-col{
   width: 25%;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 .right-col{
   width:50%;
   margin-left: 6vw;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 main article h4 , div h2{
@@ -107,25 +107,31 @@ section{
   margin-top: 5vh;
 }
 
-div{
-  border: 1px solid black;
+section article p {
+  color: gray; 
+  font-size: 0.75vw;
 }
 
+/*div{
+  border: 1px solid black;
+}
+*/
 .icon-size{
-  margin: 1vh;
+  margin: 3vh 1vh;
   height: 8vh;
 }
 
 .grid-container{
-  border: 1px solid rgb(140, 34, 34);
+ /* border: 1px solid rgb(140, 34, 34);*/
   display: grid;
 grid-template-columns: repeat(4,1fr);
+
 }
   
 footer{
-  background-color: blueviolet;
+  background-color: rgb(109, 76, 209);
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: 1.25fr 0.75fr 1.25fr 1.25fr;
   color: white;
   width: auto;
   height: auto;
