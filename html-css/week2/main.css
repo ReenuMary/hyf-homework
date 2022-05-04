@@ -79,15 +79,15 @@ main{
   row-gap: 3vh;
 }
 
-.left-col{
- /* width: 25%;*/
+/*.left-col{
+  width: 25%;
   border: 1px solid black;
-}
+}*/
 
 .right-col{
 
   margin-left: 6vw;
-  border: 1px solid black;
+ /* border: 1px solid black;*/
 }
 
 main article h2 , div h2{
