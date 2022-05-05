@@ -3,11 +3,15 @@
     padding: 0px;
 
   }
-  body {font-family: "Roboto", sans-serif;
-  height: 100vh;}
+
+  body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+}
+
 img{
   width: 50px;
-  border-radius: 25px;;
+  border-radius: 25px;
   margin :10px;
 }
 
@@ -43,13 +47,16 @@ text-align: center;
 ul.no-bullets {
   list-style-type: none; 
 }
+
 ul.horizontal-list{
   overflow: hidden;
   background-color: #333333;
 }
+
 ul.horizontal-list li{
   float: left;
 }
+
 ul.horizontal-list li a {
   display: block;
   color: white;
@@ -61,17 +68,19 @@ ul.horizontal-list li a {
 ul.horizontal-list li a:hover {
   background-color: #111111;
 }
+
 .left-col h2,.left-col h3,.left-col li,.left-col a, .left-col p>i,.left-col h3+p
 {
-    margin: 8px 10px 8px 10px;
-    padding: 1px 1px 1px 1px;
+    margin: 8px 10px;
+    padding: 1px;
 }
 
 .right-col h2,.right-col h4,.right-col h5,.right-col p, .right-col li
 {
   margin: 9px 10px 8px 15px;
-  padding: 1px 1px 1px 1px;
+  padding: 1px;
 }
+
 .right-col h2:first-child , .left-col img
 {
   margin-top: 20px;
@@ -81,6 +90,7 @@ a{
   color:#f17e7e;; 
   text-decoration: none;
 }
+
 a:hover{
   background-color: 
   rgb(99, 3, 14);

@@ -23,19 +23,19 @@ header{
 
 header h1{
   color:rgb(16, 15, 15);
-  font-size: 1.5vw;
+  font-size: 1.75vw;
   padding-top: 1rem;
 }
 
 header h5{
-  font-size: 0.75vw;
+  font-size: 1vw;
   color: gray; 
   margin-top: 0.75vh;
 }
 
 /*Top Navigation styling*/
 header + nav{
-  height: 6vh;
+  height: 8vh;
 }
 
 header + nav ul{
@@ -46,7 +46,7 @@ header + nav ul{
 
 header + nav ul li {
   list-style-type: none;
-  font-size: 0.9vw;
+  font-size: 1.2vw;
   color: rgb(29, 28, 28);
 }
 
@@ -127,6 +127,7 @@ footer{
   background-color: rgb(109, 76, 209);
   display: grid;
   grid-template-columns: 1.25fr 0.7fr 1.25fr 1.5fr;
+  column-gap: 2vw;
   color: white;
   width: auto;
   height: auto;
@@ -135,7 +136,6 @@ footer{
 footer  div{
   margin-top: 7vh;
   margin-bottom: 7vh;
-  gap:1vw;
 }
 
 footer div h6{
@@ -168,9 +168,10 @@ footer ul li{
   margin-bottom: 1.5rem;
 }
 
-footer nav ul li:nth-child(3)
+footer div nav ul li:hover
 {
   margin-left: 1vw;
+  color: white;
 }
 
 /*For small screens*/
@@ -196,14 +197,18 @@ footer nav ul li:nth-child(3)
   .grid-container{
     grid-template-columns: repeat(2,1fr);
   }
+
   footer{
     grid-template-columns: 1fr;
+    column-gap: 1vw;
   }
+
   footer  div{
     margin-left: 8vw;
     margin-top: 2vh;
     margin-bottom: 2vh; 
   }
+
   footer ul li{
     font-size: 1vw; 
     margin-bottom: 0.5rem;
@@ -212,5 +217,51 @@ footer nav ul li:nth-child(3)
   /*hide footer navigation*/
   footer div:nth-child(4) {
     display: none;
+  }
+
+  /*adjusting font sizes*/
+  header + nav ul li{
+    font-size: 2.25vw;
+  }
+
+  header h1{
+    font-size: 3vw;
+  }
+
+  header h5{
+    font-size: 2.25vw;
+  }
+
+  .p-small-font{
+    font-size: 2.1vw;
+  }
+  
+  .p-medium-font{
+    font-size: 2.25vw;
+  }
+  
+  .p-large-font{
+    font-size: 2.5vw;
+  }
+
+  main article h2 , div h2{
+    font-size: 2.9vw;
+    
+  }
+  
+  main article h5, main article h6{
+    font-size: 2.5vw;
+  }
+
+  footer div p{
+    font-size:2.1vw;
+  }
+
+  footer div h6{
+    font-size: 2.5vw;
+  }
+
+  footer ul li{
+    font-size: 2vw; 
   }
 }
