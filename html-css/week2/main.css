@@ -35,7 +35,7 @@ header h5{
 
 /*Top Navigation styling*/
 header + nav{
-  height: 8vh;
+  height: 12vh;
 }
 
 header + nav ul{
@@ -99,12 +99,10 @@ main article h5, main article h6{
 main article h5~p, main article h6~p{
   margin-top: 0.90vh;
   color: gray; 
- /* padding-right: 2rem;*/
 }
 
 main article h2~p
 {
-  /*font-size: 1vw;*/
   margin-top: 0.75vh;
   margin-bottom: 2vh;
   color: gray; 
@@ -117,9 +115,8 @@ main article h2~p
 
 /*Footer section*/
 .grid-container{
- /* border: 1px solid rgb(140, 34, 34);*/
   display: grid;
-grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4,1fr);
 
 }
   
