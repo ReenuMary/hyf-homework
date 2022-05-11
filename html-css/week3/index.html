@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/header.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/navigation.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/index.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="images/gradient_icon.png" alt="company logo" />
+      <h1>yourcustomtailor.com</h1>
+    </header>
+
+    <nav>
+      <button type="button" disabled form="page1">Page1</button>
+      <button type="submit" form="page1" formaction="page2.html">Page2</button>
+      <button type="submit" form="page1" formaction="page3.html">Page3</button>
+    </nav>
+    <main>
+      <section>
+        <h2>Sign up to yourcustomtailor.com</h2>
+        <p>
+          We can't wait to improve your lifestyle and gain the attention from
+          people around you
+        </p>
+        <p>
+          Sign up below to save upto 70% on
+          ...........................................................
+        </p>
+        <h3>Step1/4 - tell us who you are?</h3>
+      </section>
+
+      <progress id="form-fillup" max="100" value="15"></progress>
+
+      <p>Nice to meet you.....</p>
+      <form id="page1" action="page2.html" method="get">
+        <h3>Contact Address</h3>
+        <p>Required fields are followed by <abbr title="required">*</abbr>.</p>
+        <!--Grid container-->
+        <div class="grid-container">
+          <label for="firstname" class="align-label-right"
+            >First name:
+            <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <input id="firstname" type="text" name="firstname" />
+
+          <label for="lastname" class="align-label-right"
+            >Last name:
+            <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <input id="lastname" type="text" name="lastname" />
+
+          <label for="country" class="align-label-right">Country</label>
+          <select id="country" class="single-row">
+            <option value="">Select acountry</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+            <option value="Italy">Italy</option>
+            <option value="Sweden">Sweden</option>
+            <option value="Norway">Norway</option>
+          </select>
+
+          <label for="street-address" class="align-label-right"
+            >Street address:
+            <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <input id="street-address" type="text" name="street" />
+
+          <label for="postcode" class="align-label-right"
+            >Postcode:
+            <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <input
+            type="number"
+            id="postcode"
+            name="postcode"
+            size="6"
+            maxlength="6"
+          />
+          <label for="profile-desc" class="align-label-right">
+            Profile description
+          </label>
+          <p class="side-note row-four">
+            Please provide a short description of yourself to be displayed on
+            our social community pages
+          </p>
+          <textarea
+            id="profile-desc"
+            name="profile-desc"
+            class="single-row span-two-rows"
+          ></textarea>
+          <p class="single-row">
+            Use the same address for shipping and billing? Unckeck below to fill
+            out a separate shipping address
+          </p>
+          <label for="shipping" class="align-label-right"
+            >Shipping address</label
+          >
+          <input
+            type="checkbox"
+            id="shipping"
+            name="shipping"
+            value="oneaddress"
+            checked="checked"
+          />
+          <button type="submit" formaction="page2.html" class="single-row">
+            Next Step
+          </button>
+        </div>
+        <!--End of Grid container-->
+      </form>
+    </main>
+  </body>
+</html>

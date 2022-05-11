@@ -1,0 +1,91 @@
+/* Page1 styling*/
+
+main {
+  background-color: rgb(190, 241, 241);
+  padding-left: 2rem;
+  padding-bottom: 4rem;
+}
+
+h2,
+h3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+}
+
+p {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+form {
+  width: 95%;
+  border: 2px solid white;
+  align-self: center;
+  padding-bottom: 3rem;
+}
+
+form * {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: rgb(51, 48, 44);
+}
+
+form button {
+  color: white;
+  width: 8em;
+  justify-self: center;
+}
+
+form h3 + p {
+  font-size: 0.85rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.side-note {
+  font-size: small;
+  font-style: italic;
+}
+
+@media only screen and (min-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  .grid-container {
+    grid-template-columns: [col] 1fr [col] 1fr [col] 1fr [col] 1fr;
+    grid-row: [row] 1fr;
+  }
+
+  .single-row {
+    grid-column: col 2 / span 3;
+  }
+  .span-two-rows {
+    grid-row: row 3 / span 2;
+  }
+
+  .row-four {
+    grid-row: row 4;
+  }
+  .align-label-right {
+    justify-self: end;
+    align-self: center;
+  }
+
+  form button {
+    margin-top: 2rem;
+    justify-self: left;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  body {
+    width: 60%;
+    margin: auto;
+  }
+}
