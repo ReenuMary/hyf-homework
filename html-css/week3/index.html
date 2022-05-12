@@ -52,16 +52,16 @@
             >First name:
             <abbr title="required" aria-label="required">*</abbr></label
           >
-          <input id="firstname" type="text" name="firstname" />
+          <input id="firstname" type="text" name="firstname" required />
 
           <label for="lastname" class="align-label-right"
             >Last name:
             <abbr title="required" aria-label="required">*</abbr></label
           >
-          <input id="lastname" type="text" name="lastname" />
+          <input id="lastname" type="text" name="lastname" required />
 
           <label for="country" class="align-label-right">Country</label>
-          <select id="country" class="single-row">
+          <select id="country" class="single-row" required>
             <option value="">Select acountry</option>
             <option value="Denmark">Denmark</option>
             <option value="Germany">Germany</option>
@@ -75,18 +75,19 @@
             >Street address:
             <abbr title="required" aria-label="required">*</abbr></label
           >
-          <input id="street-address" type="text" name="street" />
+          <input id="street-address" type="text" name="street" required />
 
           <label for="postcode" class="align-label-right"
             >Postcode:
             <abbr title="required" aria-label="required">*</abbr></label
           >
           <input
-            type="number"
+            type="text"
             id="postcode"
             name="postcode"
             size="6"
-            maxlength="6"
+            maxlength="4"
+            required
           />
           <label for="profile-desc" class="align-label-right">
             Profile description
@@ -99,6 +100,7 @@
             id="profile-desc"
             name="profile-desc"
             class="single-row span-two-rows"
+            maxlength="500"
           ></textarea>
           <p class="single-row">
             Use the same address for shipping and billing? Unckeck below to fill

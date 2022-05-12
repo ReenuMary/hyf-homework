@@ -44,10 +44,21 @@
           <label for="email" class="align-label-right"
             >Email: <abbr title="required" aria-label="required">*</abbr></label
           >
-          <input id="email" type="email" name="email" />
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          />
 
           <label for="phone" class="align-label-right">Phone:</label>
-          <input id="phone" type="number" name="phone" />
+          <input
+            id="phone"
+            type="number"
+            name="phone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          />
 
           <label for="password" class="align-label-right"
             >Password:
@@ -58,6 +69,8 @@
             type="password"
             name="password"
             class="row2-row3"
+            pattern=".{10,}"
+            required
           />
 
           <label for="confirmpassword" class="align-label-right"
@@ -69,6 +82,8 @@
             type="password"
             name="confirmpassword"
             class="row2-row3"
+            pattern=".{10,}"
+            required
           />
           <fieldset class="row4">
             <legend>I want to sign up for the news letter</legend>
