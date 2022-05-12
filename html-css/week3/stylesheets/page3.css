@@ -1,0 +1,83 @@
+form fieldset {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border: transparent;
+}
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.offer-checkboxes {
+  vertical-align: -0.75rem;
+  margin-top: 1rem;
+}
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+}
+/* style checkbox below img*/
+.style-checkbox-vertical {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.style-chkbox-hor {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.style-chkbox-hor label {
+  justify-self: end;
+  margin-top: 1rem;
+}
+
+/* style checkbox spacing and align to the right*/
+.style-checkbox-vertical input[type="checkbox"] {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+form fieldset input[type="checkbox"] + label {
+  font-weight: bolder;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.button-container button {
+  justify-self: flex-end;
+}
+
+@media only screen and (min-width: 768px) {
+  .checkbox-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* style selection 2 img per row*/
+  .style-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .checkbox-grid {
+    width: 60%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* style selection 4 img per row*/
+  .style-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .style-checkbox-vertical input[type="checkbox"] {
+    margin-right: 0;
+  }
+  .style-checkbox-vertical img {
+    width: 100%;
+  }
+}

@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/header.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/navigation.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/index.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/page3.css" />
 
     <link
       rel="stylesheet"
@@ -20,11 +22,181 @@
       <h1>yourcustomtailor.com</h1>
     </header>
     <nav>
-      <button type="submit" form="page3" formaction="index.html">Page1</button>
-      <button type="submit" form="page3" formaction="page2.html">Page2</button>
-      <button type="button" form="page3" disabled>Page3</button>
+      <button type="button" form="page3"><a href="page1.html">Page1</a></button>
+      <button type="button" form="page3"><a href="page2.html">Page2</a></button>
+      <button type="button" form="page3">Page3</button>
     </nav>
-    <main></main>
-    <form id="page3" method="get"></form>
+    <main>
+      <section>
+        <h2>Sign up to yourcustomtailor.com</h2>
+        <h3>Step3/4 Time to learn about your preferences?</h3>
+      </section>
+      <progress id="form-fillup" max="100" value="50"></progress>
+      <form id="page3" method="get">
+        <!--Offer interests-->
+        <fieldset>
+          <legend>What kind of items are you interested in offers on?</legend>
+          <div class="checkbox-grid">
+            <div>
+              <input
+                type="checkbox"
+                name="offer-interest"
+                value="apparel"
+                id="apparel"
+                class="offer-checkboxes"
+              />
+              <label for="apparel">Apparel</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="offer-interest"
+                value="jewelry"
+                id="jewelry"
+                class="offer-checkboxes"
+              />
+              <label for="jewelry">Jewelry</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="offer-interest"
+                value="aceessories"
+                id="aceessories"
+                class="offer-checkboxes"
+              />
+              <label for="apparel">Accessories</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="offer-interest"
+                value="shoes"
+                id="shoes"
+                class="offer-checkboxes"
+              />
+              <label for="shoes">Shoes</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="offer-interest"
+                value="handbags"
+                id="handbags"
+                class="offer-checkboxes"
+              />
+              <label for="handbags">Handbags</label>
+            </div>
+          </div>
+        </fieldset>
+        <!--End of Offer interests-->
+        <!--Style choices-->
+        <fieldset>
+          <legend>Choose images that best resemble your style</legend>
+          <div class="style-container">
+            <div class="style-checkbox-vertical">
+              <img src="images/style1.jpeg" alt="style 1" />
+              <div class="style-chkbox-hor">
+                <label for="style1">Style1</label>
+                <input
+                  type="checkbox"
+                  name="mystyle"
+                  value="style1"
+                  id="style1"
+                />
+              </div>
+            </div>
+            <div class="style-checkbox-vertical">
+              <img src="images/style1.jpeg" alt="style 1" />
+              <div class="style-chkbox-hor">
+                <label for="style1">Style1</label>
+                <input
+                  type="checkbox"
+                  name="mystyle"
+                  value="style1"
+                  id="style1"
+                />
+              </div>
+            </div>
+            <div class="style-checkbox-vertical">
+              <img src="images/style1.jpeg" alt="style 1" />
+              <div class="style-chkbox-hor">
+                <label for="style1">Style1</label>
+                <input
+                  type="checkbox"
+                  name="mystyle"
+                  value="style1"
+                  id="style1"
+                />
+              </div>
+            </div>
+            <div class="style-checkbox-vertical">
+              <img src="images/style1.jpeg" alt="style 1" />
+              <div class="style-chkbox-hor">
+                <label for="style1">Style1</label>
+                <input
+                  type="checkbox"
+                  name="mystyle"
+                  value="style1"
+                  id="style1"
+                />
+              </div>
+            </div>
+            <div class="style-checkbox-vertical">
+              <img src="images/style1.jpeg" alt="style 1" />
+              <div class="style-chkbox-hor">
+                <label for="style1">Style1</label>
+                <input
+                  type="checkbox"
+                  name="mystyle"
+                  value="style1"
+                  id="style1"
+                />
+              </div>
+            </div>
+            <div class="style-checkbox-vertical">
+              <img src="images/style1.jpeg" alt="style 1" />
+              <div class="style-chkbox-hor">
+                <label for="style1">Style1</label>
+                <input
+                  type="checkbox"
+                  name="mystyle"
+                  value="style1"
+                  id="style1"
+                />
+              </div>
+            </div>
+            <div class="style-checkbox-vertical">
+              <img src="images/style1.jpeg" alt="style 1" />
+              <div class="style-chkbox-hor">
+                <label for="style1">Style1</label>
+                <input
+                  type="checkbox"
+                  name="mystyle"
+                  value="style1"
+                  id="style1"
+                />
+              </div>
+            </div>
+            <div class="style-checkbox-vertical">
+              <img src="images/style1.jpeg" alt="style 1" />
+              <div class="style-chkbox-hor">
+                <label for="style1">Style1</label>
+                <input
+                  type="checkbox"
+                  name="mystyle"
+                  value="style1"
+                  id="style1"
+                />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <!--End of style choices-->
+        <div class="button-container">
+          <button type="button">Next Step</button>
+        </div>
+      </form>
+    </main>
   </body>
 </html>

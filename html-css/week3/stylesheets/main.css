@@ -35,6 +35,11 @@ button {
   height: 2.5rem;
 }
 
+button a {
+  text-decoration: none;
+  color: white;
+}
+
 textarea {
   height: 8rem;
 }

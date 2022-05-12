@@ -22,9 +22,9 @@
     </header>
 
     <nav>
-      <button type="button" disabled form="page1">Page1</button>
-      <button type="submit" form="page1" formaction="page2.html">Page2</button>
-      <button type="submit" form="page1" formaction="page3.html">Page3</button>
+      <button type="button">Page1</button>
+      <button type="button" form="page1"><a href="page2.html">Page2</a></button>
+      <button type="button" form="page1"><a href="page3.html">Page3</a></button>
     </nav>
     <main>
       <section>
@@ -114,12 +114,10 @@
             value="oneaddress"
             checked="checked"
           />
-          <!-- Not working on github preview
-          <button type="submit" formaction="page2.html" class="single-row">
-            Next Step
+          <!-- Not working on github preview -->
+          <button type="button" class="single-row">
+            <a href="page2.html">Next Step</a>
           </button>
-          -->
-          <a href="page2.html">Next Step</a>
         </div>
         <!--End of Grid container-->
       </form>

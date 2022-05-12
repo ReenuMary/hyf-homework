@@ -34,7 +34,7 @@ form * {
 form button {
   color: white;
   width: 8em;
-  justify-self: center;
+  /* justify-self: center;*/
 }
 
 form h3 + p {
@@ -82,11 +82,10 @@ form h3 + p {
     justify-self: end;
     align-self: center;
   }
-
+  /*
   form button {
     margin-top: 2rem;
-    justify-self: left;
-  }
+  }*/
 }
 
 @media only screen and (min-width: 1000px) {
