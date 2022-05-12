@@ -1,4 +1,4 @@
-/* Page1 styling*/
+/* basic styling for all html pages with form - */
 
 main {
   background-color: rgb(190, 241, 241);
@@ -57,14 +57,20 @@ form h3 + p {
     font-size: 2rem;
   }
 
+  h3 {
+    font-size: 1.5rem;
+  }
+
   .grid-container {
     grid-template-columns: [col] 1fr [col] 1fr [col] 1fr [col] 1fr;
     grid-row: [row] 1fr;
   }
-
+  /*for textbox starting on 2nd grid col and span upto the end.
+   eg. profiel description on index page */
   .single-row {
     grid-column: col 2 / span 3;
   }
+
   .span-two-rows {
     grid-row: row 3 / span 2;
   }

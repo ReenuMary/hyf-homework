@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/header.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/navigation.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/index.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/page2.css" />
 
     <link
       rel="stylesheet"
@@ -24,6 +26,84 @@
       <button type="button" form="page2" disabled>Page2</button>
       <button type="submit" form="page2" formaction="page3.html">Page3</button>
     </nav>
-    <form id="page2" method="get"></form>
+    <main>
+      <section>
+        <h2>Sign up to yourcustomtailor.com</h2>
+        <h3>Step2/4 - how can we reach you?</h3>
+      </section>
+
+      <progress id="form-fillup" max="100" value="30"></progress>
+
+      <p>We will probably need to ....</p>
+
+      <form id="page2" method="get" action="page3.html">
+        <h3>Email & Phone</h3>
+        <p>Required fields are followed by <abbr title="required">*</abbr>.</p>
+        <!--Grid container-->
+        <div class="grid-container">
+          <label for="email" class="align-label-right"
+            >Email: <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <input id="email" type="email" name="email" />
+
+          <label for="phone" class="align-label-right">Phone:</label>
+          <input id="phone" type="number" name="phone" />
+
+          <label for="password" class="align-label-right"
+            >Password:
+            <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <input
+            id="password"
+            type="password"
+            name="password"
+            class="row2-row3"
+          />
+
+          <label for="confirmpassword" class="align-label-right"
+            >Re-enter Password:
+            <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <input
+            id="confirmpassword"
+            type="password"
+            name="confirmpassword"
+            class="row2-row3"
+          />
+          <fieldset class="row4">
+            <legend>I want to sign up for the news letter</legend>
+            <div>
+              <input
+                type="radio"
+                id="weeklynews"
+                name="newsletter"
+                value="weeklynews"
+                checked
+              />
+              <label for="weeklynews">Weekly news</label>
+
+              <input
+                type="radio"
+                id="monthlynews"
+                name="newsletter"
+                value="monthlynews"
+              />
+              <label for="monthlynews">Monthly news</label>
+
+              <input
+                type="radio"
+                id="nonews"
+                name="newsletter"
+                value="nonews"
+              />
+              <label for="nonews">Don't send me any news</label>
+            </div>
+          </fieldset>
+          <button type="submit" formaction="page3.html" class="single-row">
+            Next Step
+          </button>
+        </div>
+      </form>
+    </main>
   </body>
 </html>

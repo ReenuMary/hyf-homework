@@ -24,6 +24,8 @@ textarea {
 
 input[type="text"],
 input[type="number"],
+input[type="email"],
+input[type="password"],
 select,
 textarea,
 button {
@@ -66,4 +68,22 @@ input[type="checkbox"]:checked::before {
 button {
   background-color: rgb(2, 151, 25);
   color: white;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding-left: 0;
+  padding-right: 0;
+
+  border: 2px solid rgb(66, 193, 7);
+  transition: 0.2s all linear;
+
+  position: relative;
+  top: 4px;
+}
+
+input[type="radio"]:checked {
+  border: 7px solid rgb(22, 198, 48);
 }

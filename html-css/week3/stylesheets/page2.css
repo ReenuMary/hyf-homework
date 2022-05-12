@@ -1,0 +1,23 @@
+fieldset {
+  padding-bottom: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  /* re-enter password will be in new row*/
+  .row2-row3 {
+    grid-column: col 2 / span 3;
+    width: max-content;
+  }
+  .row4 {
+    grid-column: col 1 / span 4;
+    padding-top: 1rem;
+  }
+
+  form fieldset {
+    margin-top: 1rem;
+    justify-self: center;
+  }
+  form fieldset input[type="radio"] + label {
+    font-weight: bolder;
+  }
+}
