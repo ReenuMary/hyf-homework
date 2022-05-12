@@ -92,3 +92,9 @@ input[type="radio"] {
 input[type="radio"]:checked {
   border: 7px solid rgb(22, 198, 48);
 }
+
+progress {
+  width: 50%;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
