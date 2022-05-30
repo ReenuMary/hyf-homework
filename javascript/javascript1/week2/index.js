@@ -29,3 +29,22 @@ const fullname4 = getFullname("Catrine", "", true, Female);
 if (fullname4 != undefined) {
   console.log(fullname4);
 }
+
+//Ex 2
+const weekDay = {
+  0: "Sunday",
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
+};
+
+function getEventWeekday(noOfdaysFromToday) {
+  const day = new Date();
+  day.setDate(day.getDate() + noOfdaysFromToday);
+  return weekDay[day.getDay()];
+}
+
+console.log(`Event day is ${getEventWeekday(40)}`);
