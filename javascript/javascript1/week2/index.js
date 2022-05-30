@@ -48,3 +48,25 @@ function getEventWeekday(noOfdaysFromToday) {
 }
 
 console.log(`Event day is ${getEventWeekday(40)}`);
+
+//Ex3
+
+function getClothingRecommendation(temperatureInCelcius) {
+  if (temperatureInCelcius < 0) {
+    return "4 layers of winter clothes";
+  }
+  if (temperatureInCelcius <= 10) {
+    return "3 layers of winter clothes";
+  }
+  if (temperatureInCelcius > 10 && temperatureInCelcius <= 15) {
+    return "Spring wear";
+  }
+  if (temperatureInCelcius > 15 && temperatureInCelcius <= 20) {
+    return "Summer wear with & a small coat";
+  }
+  if (temperatureInCelcius > 20) {
+    return "summer wear";
+  }
+}
+const clothesToWear = getClothingRecommendation(18);
+console.log(clothesToWear);
