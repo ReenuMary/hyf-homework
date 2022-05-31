@@ -2,8 +2,23 @@ const Male = "male";
 const Female = "female";
 
 function getFullname(firstName, sirName, useFormalName = false, gender = Male) {
-  firstName = firstName.replace(/\s/g, "");
-  sirName = sirName.replace(/\s/g, "");
+  if (arguments.length < 2) {
+    console.warn("First name and last name must be given");
+    return;
+  }
+  if (typeof firstName != "string" || typeof sirName != "string") {
+    console.warn("First name and last name must be of type string");
+    return;
+  }
+  //remove empty spaces within the name
+  if (firstName.length > 0) {
+    //firstName = firstName.Trim();
+    firstName = firstName.replace(/\s/g, "");
+  }
+  if (sirName.length > 0) {
+    //sirName = sirName.trim();
+    sirName = sirName.replace(/\s/g, "");
+  }
   if (firstName === "" && sirName === "") {
     //throw new console.error("First name and sir name should not be empty");
     console.warn("First name and sir name should not be empty");
