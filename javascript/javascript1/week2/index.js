@@ -164,6 +164,14 @@ console.log(`Amount to spend -${amountToSpend}`);
 const myCandyBasket = [];
 
 function addCandyToBasket(candyName, weight) {
+  if (
+    arguments.length < 2 ||
+    typeof candyName != "string" ||
+    typeof weight != "number"
+  ) {
+    console.warn("Please provide valid candy name and weight");
+    return;
+  }
   if (!isValidCandyType(candyName)) {
     console.log(`Invalid candy name- ${candyName}`);
     return;
