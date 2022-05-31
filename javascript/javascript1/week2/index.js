@@ -74,8 +74,13 @@ console.log(clothesToWear);
 // Ex 4
 const class07Students = [];
 function addStudentToClass(studentName) {
+  studentName = studentName.replace(/\s/g, "");
+  if (studentName.length <= 0) {
+    console.log("Please enter a student name");
+    return;
+  }
   if (!isStudentInclass(studentName)) {
-    if (getNumberOfStudents() < 7 || studentName === "Queen") {
+    if (getNumberOfStudents() < 6 || studentName.toLowerCase() === "queen") {
       class07Students.push(studentName);
     } else {
       console.log("Cannot accept more students as the class is already full");
@@ -104,3 +109,89 @@ addStudentToClass(`Queen`);
 /* addStudentToClass("Reenu");
 addStudentToClass("reenu"); */
 console.log(class07Students);
+
+//Ex5
+const candyPriceList = [
+  {
+    candyType: "Sweet",
+    pricePerGram: 0.5,
+  },
+  {
+    candyType: "Chocolate",
+    pricePerGram: 0.7,
+  },
+  {
+    candyType: "Toffee",
+    pricePerGram: 1.1,
+  },
+  {
+    candyType: "Chewing gum",
+    pricePerGram: 0.03,
+  },
+];
+let amountToSpend = Math.random() * 100;
+console.log(`Amount to spend -${amountToSpend}`);
+//let currentTotal = 0;
+const myCandyBasket = [];
+
+function addCandyToBasket(candyName, weight) {
+  if (!isValidCandyType(candyName)) {
+    console.log(`Invalid candy name- ${candyName}`);
+    return;
+  }
+  const priceOfSelectedCandy = getCandyPrice(candyName, weight);
+  console.log(
+    `Price of ${weight} grams of ${candyName} is ${priceOfSelectedCandy}`
+  );
+  if (priceOfSelectedCandy <= amountToSpend) {
+    myCandyBasket.push({
+      candyType: candyName,
+      candyweight: weight,
+      price: priceOfSelectedCandy,
+    });
+
+    //currentTotal += priceOfSelectedCandy;
+    amountToSpend -= priceOfSelectedCandy;
+  } else {
+    console.log("You do not have enough money to buy this item");
+  }
+}
+
+function isValidCandyType(candyName) {
+  return candyPriceList.find(
+    (candy) => candy.candyType.toLowerCase() === candyName.toLowerCase()
+  ) === undefined
+    ? false
+    : true;
+}
+
+function getCandyPrice(candyName, candyWeightInGrams) {
+  const candyPrice = candyPriceList.find(
+    (candy) => candy.candyType.toLowerCase() === candyName.toLowerCase()
+  );
+  return candyPrice.pricePerGram * candyWeightInGrams;
+}
+
+function getBasketTotalPrice() {
+  /*  let total = 0;
+  for (let i = 0; i < myCandyBasket.length; i++) {
+    total += myCandyBasket[i].price;
+  }
+  return total; */
+  return myCandyBasket.reduce(
+    (previousValue, currentValue) => previousValue + currentValue.price,
+    0
+  );
+}
+
+function viewMyBasket() {
+  console.log(myCandyBasket);
+  //console.log(`Total price ${currentTotal}`);
+  console.log(`Total price ${getBasketTotalPrice()}`);
+  console.log(`Amount to spend ${amountToSpend}`);
+}
+
+addCandyToBasket("Toffee", 50);
+addCandyToBasket("Chocolate", 50);
+addCandyToBasket("Chewing gum", 100);
+viewMyBasket();
