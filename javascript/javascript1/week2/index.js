@@ -4,7 +4,7 @@ const Female = "female";
 function getFullname(firstName, sirName, useFormalName = false, gender = Male) {
   firstName = firstName.replace(/\s/g, "");
   sirName = sirName.replace(/\s/g, "");
-  if (firstName === "" || sirName === "") {
+  if (firstName === "" && sirName === "") {
     //throw new console.error("First name and sir name should not be empty");
     console.warn("First name and sir name should not be empty");
     return;
@@ -70,3 +70,37 @@ function getClothingRecommendation(temperatureInCelcius) {
 }
 const clothesToWear = getClothingRecommendation(18);
 console.log(clothesToWear);
+
+// Ex 4
+const class07Students = [];
+function addStudentToClass(studentName) {
+  if (!isStudentInclass(studentName)) {
+    if (getNumberOfStudents() < 7 || studentName === "Queen") {
+      class07Students.push(studentName);
+    } else {
+      console.log("Cannot accept more students as the class is already full");
+    }
+  } else {
+    console.log(`${studentName} is already added to the class`);
+  }
+}
+
+function isStudentInclass(studentName) {
+  return class07Students.find(
+    (name) => name.toLowerCase() === studentName.toLowerCase()
+  ) === undefined
+    ? false
+    : true;
+}
+function getNumberOfStudents() {
+  // You write code here
+  return class07Students.length;
+}
+for (let i = 0; i < 8; i++) {
+  addStudentToClass(`A${i}`);
+}
+console.log("adding queen");
+addStudentToClass(`Queen`);
+/* addStudentToClass("Reenu");
+addStudentToClass("reenu"); */
+console.log(class07Students);
