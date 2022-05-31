@@ -7,8 +7,15 @@ function getFullname(firstName, sirName, useFormalName = false, gender = Male) {
   if (firstName === "" && sirName === "") {
     //throw new console.error("First name and sir name should not be empty");
     console.warn("First name and sir name should not be empty");
+    //throw "First name and sir name should not be empty";
     return;
   }
+  if (!(useFormalName === true || useFormalName === false)) {
+    //throw "Invalid parameter, bolean expected";
+    console.warn("Invalid parameter, bolean expected");
+    return;
+  }
+
   if (useFormalName) {
     if (gender === Male) {
       return `Lord ${firstName} ${sirName}`;
@@ -20,12 +27,19 @@ function getFullname(firstName, sirName, useFormalName = false, gender = Male) {
 }
 
 const fullname1 = getFullname("Reenu", "Abraham");
-console.log(fullname1);
-const fullname2 = getFullname("Benjamin", "Hughes", true);
+if (fullname1 != undefined) {
+  console.log(fullname1);
+}
+const fullname2 = getFullname("Benjamin", "Hughes", 5);
 console.log(fullname2);
-const fullname3 = getFullname("Sofia", "John", true, Female);
+const fullname3 = getFullname("Sofia", "John", true, "abcd");
 console.log(fullname3);
 const fullname4 = getFullname("Catrine", "", true, Female);
+if (fullname4 != undefined) {
+  console.log(fullname4);
+}
+
+const fullname5 = getFullname(" ", "", true, Female);
 if (fullname4 != undefined) {
   console.log(fullname4);
 }
