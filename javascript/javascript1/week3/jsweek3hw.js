@@ -45,10 +45,24 @@ function getTravelTime(travelInformation) {
     return "Invalid travel information";
   }
   if (
-    typeof travelInformation.destinationDistance != "number" ||
-    typeof travelInformation.speed != "number"
+    isNaN(travelInformation.destinationDistance) ||
+    isNaN(travelInformation.speed)
   ) {
-    return "Destination distance and speed must be numbers";
+    return "Distance and speed must be numerical values";
+  }
+  if (typeof travelInformation.destinationDistance !== "number") {
+    travelInformation.destinationDistance = parseFloat(
+      travelInformation.destinationDistance
+    );
+    if (isNaN(travelInformation.destinationDistance)) {
+      return "Distance and speed must be numerical values";
+    }
+  }
+  if (typeof travelInformation.speed !== "number") {
+    travelInformation.speed = parseFloat(travelInformation.speed);
+    if (isNaN(travelInformation.speed)) {
+      return "Distance and speed must be numerical values";
+    }
   }
   const time = travelInformation.destinationDistance / travelInformation.speed;
   const hours = Math.floor(time);
@@ -57,7 +71,9 @@ function getTravelTime(travelInformation) {
 }
 console.log(getTravelTime());
 console.log(getTravelTime(2));
-console.log(getTravelTime({ destinationDistance: 100, speed: "25 " }));
+console.log(getTravelTime({ destinationDistance: NaN, speed: "25" }));
+console.log(getTravelTime({ destinationDistance: true, speed: "25" }));
+console.log(getTravelTime({ destinationDistance: "100", speed: "25" }));
 
 const travelTime = getTravelTime(travelInformation);
 console.log(travelTime); // 8 hours and 38 minutes
