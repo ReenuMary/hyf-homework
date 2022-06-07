@@ -1,76 +1,60 @@
 const Male = "male";
 const Female = "female";
 
-function getFullname(firstName, sirName, useFormalName = false, gender = Male) {
+function getFullname(firstName, surName, useFormalName = false, gender = Male) {
   if (arguments.length < 2) {
-    console.warn("First name and last name must be given");
-    return;
-  }
-  if (typeof firstName != "string" || typeof sirName != "string") {
-    console.warn("First name and last name must be of type string");
-    return;
+    return "First name and last name must be given";
   }
   //remove empty spaces within the name
-  if (firstName.length > 0) {
-    //firstName = firstName.Trim();
-    firstName = firstName.replace(/\s/g, "");
+  firstName = firstName.replace(/\s/g, "");
+  surName = surName.replace(/\s/g, "");
+
+  if (
+    typeof firstName != "string" ||
+    typeof surName != "string" ||
+    firstName === "" ||
+    surName === ""
+  ) {
+    return "First name and last name must be of type string and should not be empty";
   }
-  if (sirName.length > 0) {
-    //sirName = sirName.trim();
-    sirName = sirName.replace(/\s/g, "");
-  }
-  if (firstName === "" && sirName === "") {
-    //throw new console.error("First name and sir name should not be empty");
-    console.warn("First name and sir name should not be empty");
-    //throw "First name and sir name should not be empty";
-    return;
-  }
-  if (!(useFormalName === true || useFormalName === false)) {
-    //throw "Invalid parameter, bolean expected";
-    console.warn("Invalid parameter, bolean expected");
-    return;
+
+  if (typeof useFormalName !== "boolean") {
+    return "Invalid parameter for the use of formal name, bolean expected";
   }
 
   if (useFormalName) {
     if (gender === Male) {
-      return `Lord ${firstName} ${sirName}`;
+      return `Lord ${firstName} ${surName}`;
     } else if (gender === Female) {
-      return `Lady ${firstName} ${sirName}`;
+      return `Lady ${firstName} ${surName}`;
     }
   }
-  return `${firstName} ${sirName}`;
+  return `${firstName} ${surName}`;
 }
 
 const fullname1 = getFullname("Reenu", "Abraham");
-if (fullname1 != undefined) {
-  console.log(fullname1);
-}
+console.log(fullname1);
 const fullname2 = getFullname("Benjamin", "Hughes", 5);
 console.log(fullname2);
 const fullname3 = getFullname("Sofia", "John", true, "abcd");
 console.log(fullname3);
 const fullname4 = getFullname("Catrine", "", true, Female);
-if (fullname4 != undefined) {
-  console.log(fullname4);
-}
-
+console.log(fullname4);
 const fullname5 = getFullname(" ", "", true, Female);
-if (fullname4 != undefined) {
-  console.log(fullname4);
-}
+console.log(fullname5);
 
 //Ex 2
-const weekDay = {
-  0: "Sunday",
-  1: "Monday",
-  2: "Tuesday",
-  3: "Wednesday",
-  4: "Thursday",
-  5: "Friday",
-  6: "Saturday",
-};
 
 function getEventWeekday(noOfdaysFromToday) {
+  const weekDay = {
+    0: "Sunday",
+    1: "Monday",
+    2: "Tuesday",
+    3: "Wednesday",
+    4: "Thursday",
+    5: "Friday",
+    6: "Saturday",
+  };
   const day = new Date();
   day.setDate(day.getDate() + noOfdaysFromToday);
   return weekDay[day.getDay()];
@@ -87,10 +71,10 @@ function getClothingRecommendation(temperatureInCelcius) {
   if (temperatureInCelcius <= 10) {
     return "3 layers of winter clothes";
   }
-  if (temperatureInCelcius > 10 && temperatureInCelcius <= 15) {
+  if (temperatureInCelcius <= 15) {
     return "Spring wear";
   }
-  if (temperatureInCelcius > 15 && temperatureInCelcius <= 20) {
+  if (temperatureInCelcius <= 20) {
     return "Summer wear with & a small coat";
   }
   if (temperatureInCelcius > 20) {
@@ -104,8 +88,12 @@ console.log(clothesToWear);
 const class07Students = [];
 function addStudentToClass(studentName) {
   studentName = studentName.replace(/\s/g, "");
-  if (studentName.length <= 0) {
-    console.log("Please enter a student name");
+  if (
+    arguments.length < 1 ||
+    studentName.length <= 0 ||
+    typeof studentName !== "string"
+  ) {
+    console.log("Please enter a student name as a string");
     return;
   }
   if (!isStudentInclass(studentName)) {
@@ -130,13 +118,18 @@ function getNumberOfStudents() {
   // You write code here
   return class07Students.length;
 }
-for (let i = 0; i < 8; i++) {
-  addStudentToClass(`A${i}`);
-}
+addStudentToClass("Reenu");
+addStudentToClass("reenu");
+addStudentToClass("Vie");
+addStudentToClass("Lucia");
+addStudentToClass("Catrine");
+addStudentToClass("Anna");
+addStudentToClass("Sarah");
+addStudentToClass("Mary");
+
 console.log("adding queen");
 addStudentToClass(`Queen`);
-/* addStudentToClass("Reenu");
-addStudentToClass("reenu"); */
+
 console.log(class07Students);
 
 //Ex5
@@ -159,8 +152,7 @@ const candyPriceList = [
   },
 ];
 let amountToSpend = Math.random() * 100;
-console.log(`Amount to spend -${amountToSpend}`);
-//let currentTotal = 0;
+console.log(`Amount to spend : ${amountToSpend}`);
 const myCandyBasket = [];
 
 function addCandyToBasket(candyName, weight) {
@@ -186,8 +178,6 @@ function addCandyToBasket(candyName, weight) {
       candyweight: weight,
       price: priceOfSelectedCandy,
     });
-
-    //currentTotal += priceOfSelectedCandy;
     amountToSpend -= priceOfSelectedCandy;
   } else {
     console.log("You do not have enough money to buy this item");
@@ -210,11 +200,6 @@ function getCandyPrice(candyName, candyWeightInGrams) {
 }
 
 function getBasketTotalPrice() {
-  /*  let total = 0;
-  for (let i = 0; i < myCandyBasket.length; i++) {
-    total += myCandyBasket[i].price;
-  }
-  return total; */
   return myCandyBasket.reduce(
     (previousValue, currentValue) => previousValue + currentValue.price,
     0
@@ -223,7 +208,6 @@ function getBasketTotalPrice() {
 
 function viewMyBasket() {
   console.log(myCandyBasket);
-  //console.log(`Total price ${currentTotal}`);
   console.log(`Total price ${getBasketTotalPrice()}`);
   console.log(`Amount to spend ${amountToSpend}`);
 }
