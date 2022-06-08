@@ -77,3 +77,54 @@ console.log(getTravelTime({ destinationDistance: "100", speed: "25" }));
 
 const travelTime = getTravelTime(travelInformation);
 console.log(travelTime); // 8 hours and 38 minutes
+
+//Ex3
+const seriesDurations = [
+  {
+    title: "Game of thrones",
+    days: 3,
+    hours: 1,
+    minutes: 0,
+  },
+  {
+    title: "Sopranos",
+    days: 3,
+    hours: 14,
+    minutes: 0,
+  },
+  {
+    title: "The Wire",
+    days: 2,
+    hours: 12,
+    minutes: 0,
+  },
+];
+
+function logOutSeriesText() {
+  // write code here
+
+  let totaltimeOnAllSeries = 0;
+  for (siries of seriesDurations) {
+    const totalSeriesTimeInMinutes =
+      siries.days * 24 * 60 + siries.hours * 60 + siries.minutes;
+    totaltimeOnAllSeries += totalSeriesTimeInMinutes;
+    const percentageLife = calculateLifeTimePercentage(
+      totalSeriesTimeInMinutes
+    );
+
+    console.log(`${siries.title} took ${percentageLife.toFixed(3)} of my life`);
+  }
+  console.log(
+    `In total that is ${Math.fround(
+      calculateLifeTimePercentage(totaltimeOnAllSeries)
+    )} of my life }`
+  );
+}
+
+function calculateLifeTimePercentage(activityTime) {
+  const avgLifeInYears = 80;
+  const lifeTimeInMinutes = avgLifeInYears * 365 * 24 * 60;
+  return (activityTime / lifeTimeInMinutes) * 100;
+}
+
+logOutSeriesText();
