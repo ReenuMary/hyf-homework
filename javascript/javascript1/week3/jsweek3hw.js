@@ -128,3 +128,86 @@ function calculateLifeTimePercentage(activityTime) {
 }
 
 logOutSeriesText();
+
+//Ex4
+const notes = [
+  {
+    id: 1,
+    content: "my notes",
+  },
+  {
+    id: 2,
+    content: "your  notes",
+  },
+];
+
+//assuming notes is using positive integers as id , not handling float id or -ve number
+function saveNote(content, id = 0) {
+  if (arguments.length < 1) {
+    console.log("No content provided to save");
+    return;
+  }
+  if (typeof id !== "number") {
+    console.log("Notes is using numerical id. Invalid id provided");
+    return;
+  }
+  // if no id provided create id
+  if (id === 0) {
+    id = createId();
+  }
+  //check if the provided id is repeating
+  else {
+    if (isExistingId(id)) {
+      const createdId = createId();
+      console.log(
+        `${id} is already in use. So saving the note with a new Id as ${createId()}`
+      );
+      id = createdId;
+    }
+    notes.push({ id, content });
+  }
+}
+
+function createId() {
+  if (notes.length === 0) {
+    return 1;
+  }
+  return Math.max(...notes.map((x) => x.id)) + 1;
+}
+
+function isExistingId(id) {
+  return notes.find((x) => x.id === id) === undefined ? false : true;
+}
+function getNote(id) {
+  if (arguments.length < 1 || typeof id !== "number") {
+    console.log("Please provide a numerical id to retrieve a note");
+    return;
+  }
+  if (!isExistingId(id)) {
+    console.log("Invalid id");
+    return;
+  }
+  return notes.find((x) => x.id === id);
+}
+saveNote("Pick up groceries", 1);
+saveNote("Do laundry", 2);
+//console.log(notes);
+const firstNote = getNote(3);
+console.log("note with id 3 is ", firstNote);
+
+function logOutNotesFormatted() {
+  for (note of notes) {
+    console.log(
+      `The note with id:${note.id}, has the following note text:${note.content}`
+    );
+  }
+}
+
+logOutNotesFormatted();
+//Extra Search feature to notes
+//return all notes that contain the given string
+function searchInNotes(word) {
+  return notes.filter((note) => note.content.includes(word));
+}
+
+console.log("Notes that contain the word 'notes' ", searchInNotes("notes"));
