@@ -211,3 +211,72 @@ function searchInNotes(word) {
 }
 
 console.log("Notes that contain the word 'notes' ", searchInNotes("notes"));
+
+//CactusIO-interactive (Smart phone usage app)
+const activities = [];
+const dailyUsageLimit = 40;
+
+function addActivity(activity, duration) {
+  if (
+    arguments.length < 2 ||
+    typeof activity !== "string" ||
+    typeof duration !== "number"
+  ) {
+    console.log("Cannot add activity due to invalid prameter values");
+    return;
+  }
+  date = new Date();
+  activities.push({ date, activity, duration });
+}
+const yesterday = new Date("2022-06-07");
+activities.push({
+  date: yesterday,
+  activity: "youtube watching",
+  duration: 60,
+});
+activities.push({
+  date: yesterday,
+  activity: "tv watching",
+  duration: 30,
+});
+addActivity("youtube watching", 30);
+addActivity("tv watching", 20);
+addActivity("fb", 10);
+console.log(activities);
+
+//Showing status of todays activities
+function showStatus() {
+  today = removeTime();
+  const todaysActivities = activities.filter(
+    (x) => removeTime(x.date).getTime() === today.getTime()
+  );
+  //console.log("todays activities", todaysActivities);
+  const totalActivityTime = todaysActivities.reduce(
+    (sum, x) => sum + x.duration,
+    0
+  );
+  console.log(
+    totalActivityTime >= dailyUsageLimit
+      ? "Exceeded usage limit"
+      : "Within todays limit"
+  );
+  return `You have added ${activities.length} activities today. They amount to ${totalActivityTime} min. of usage`;
+}
+
+function removeTime(date = new Date()) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+function getMaxDurationActivities() {
+  const maxDuration = Math.max(...activities.map((x) => x.duration));
+  return activities.filter((x) => x.duration === maxDuration);
+}
+console.log(showStatus());
+const maxDurationActivites = getMaxDurationActivities();
+console.log("Maximum duration activities:", maxDurationActivites);
+
+//Extra feature
+function searchInActivities(searchString) {
+  return activities.filter((x) => x.activity.includes(searchString));
+}
+console.log("activities with 'youtube'", searchInActivities("youtube"));
