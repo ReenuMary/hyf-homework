@@ -14,14 +14,14 @@ const nameToRemove = "Ahmad";
 function removeNameFromArray(name) {
   if (arguments.length < 1 || typeof name != "string") {
     console.log("Please provide the name to remove as a string");
-    return;
+  } else {
+    //the check is not necessary but just additional info for the user if required
+    if (names.indexOf(name) === -1) {
+      console.log(`${name} is not present in the array`);
+    } else {
+      names.splice(names.indexOf(name), 1);
+    }
   }
-  //the check is not necessary but just additional info for the user if required
-  if (names.indexOf(name) === -1) {
-    console.log(`${name} is not present in the array`);
-    return;
-  }
-  names.splice(names.indexOf(name), 1);
 }
 removeNameFromArray();
 removeNameFromArray("5");
@@ -207,10 +207,12 @@ logOutNotesFormatted();
 //Extra Search feature to notes
 //return all notes that contain the given string
 function searchInNotes(word) {
-  return notes.filter((note) => note.content.includes(word));
+  return notes.filter((note) =>
+    note.content.toLowerCase().includes(word.toLowerCase())
+  );
 }
 
-console.log("Notes that contain the word 'notes' ", searchInNotes("notes"));
+console.log("Notes that contain the word 'Notes' ", searchInNotes("Notes"));
 
 //CactusIO-interactive (Smart phone usage app)
 const activities = [];
