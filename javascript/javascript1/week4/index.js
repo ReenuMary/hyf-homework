@@ -35,6 +35,11 @@ regexpressions.push({
   type: "timer",
 });
 
+regexpressions.push({
+  expression: new RegExp("what is [0-9]*[\\s]*[+|*|/|-][\\s]*[0-9]*", "i"),
+  type: "mathematics",
+});
+
 function getReply(command) {
   if (arguments.length < 1 || command === "") {
     return "Sorry I didn't hear you";
@@ -122,6 +127,10 @@ function getReply(command) {
           }
           break;
         }
+        case "mathematics": {
+          response = doMaths(command);
+          break;
+        }
 
         default:
           break;
@@ -205,11 +214,47 @@ function getFormattedDate() {
   } ${today.getFullYear()}`;
 }
 
-function endOfTimerMessage() {
-  console.log("Timer ended", new Date());
-}
-console.log(getReply("What is my name?"));
+function doMaths(command) {
+  const words = command.split(" ");
+  let operator = "",
+    response = "";
 
+  if (command.includes("+")) operator = "+";
+  else if (command.includes("-")) operator = "-";
+  else if (command.includes("*")) operator = "*";
+  else if (command.includes("/")) operator = "/";
+  const index = words.indexOf(operator);
+  const number1 = parseInt(words[index - 1]);
+  const number2 = parseInt(words[index + 1]);
+
+  if (isNaN(number1) || isNaN(number2)) {
+    response = "Invalid number given for mathematical operation";
+  } else {
+    switch (operator) {
+      case "+": {
+        response = `${number1} + ${number2} is ${number1 + number2}`;
+        break;
+      }
+      case "-": {
+        response = ` ${number1} - ${number2} is ${number1 - number2}`;
+        break;
+      }
+      case "*": {
+        response = ` ${number1} * ${number2} is ${number1 * number2}`;
+        break;
+      }
+      case "/": {
+        response = ` ${number1} / ${number2} is ${number1 / number2}`;
+        break;
+      }
+      default:
+        break;
+    }
+  }
+  return response;
+}
+
+console.log(getReply("What is my name?"));
 console.log(getReply("Hello My name is Benjamin. I am from Denmark"));
 console.log(getReply("My name is Hughes."));
 
@@ -223,4 +268,7 @@ console.log(getReply("Add singing in the shower to my todo"));
 console.log(getReply("What is on my todo?"));
 console.log(getReply("Remove abcd from my todo"));
 console.log(getReply("What day is it today?"));
-console.log(getReply("Set a timer for 1 minute"));
+//console.log(getReply("Set a timer for 1 minute"));
+
+console.log(getReply("what is 3 + 3"));
+console.log(getReply("what is 3 * 3"));
