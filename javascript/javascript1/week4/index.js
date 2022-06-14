@@ -15,10 +15,19 @@ regexpressions.push({
   type: "addToDoList",
 });
 
-//"What is on my todo?"
 regexpressions.push({
-  expression: new RegExp("What [a-z,0-9,\\s]*  my todo?", "i"),
-  type: "listTasks",
+  expression: new RegExp("What is on my todo?", "i"),
+  type: "listToDo",
+});
+
+regexpressions.push({
+  expression: new RegExp("Remove [a-z,0-9,\\s]* from my todo", "i"),
+  type: "removeFromToDoList",
+});
+
+regexpressions.push({
+  expression: new RegExp("What day is it today?", "i"),
+  type: "today",
 });
 
 function getReply(command) {
@@ -55,19 +64,43 @@ function getReply(command) {
         }
 
         case "addToDoList": {
-          const taskToAdd = getTask(command.toLowerCase(), "add", 1);
-          if (myConversation.toDoList === undefined) {
-            myConversation.toDoList = [taskToAdd];
+          const taskToAdd = getTask(command.toLowerCase());
+          if (taskToAdd !== "" && taskToAdd !== " ") {
+            addTask(taskToAdd);
+            response = `${taskToAdd} added to To Do  list`;
           } else {
-            myConversation.toDoList.push(taskToAdd);
+            response = `no task found in your command`;
           }
-          response = `${taskToAdd} added to To Do  list`;
           break;
         }
 
-        case "listTasks": {
+        case "listToDo": {
+          console.log("list detected");
+          if (myConversation.toDoList === undefined) {
+            response = "Your haven't added anything to the list yet";
+          } else {
+            if (myConversation.toDoList.length === 0) {
+              response = `Your to do is empty`;
+            } else {
+              response = `Your to do list is ${myConversation.toDoList}`;
+            }
+          }
+          break;
         }
 
+        case "removeFromToDoList": {
+          const taskToRemove = getTask(command.toLowerCase(), "remove");
+          if (taskToRemove !== "" && taskToRemove !== " ") {
+            response = removeFromToDoList(taskToRemove);
+          } else {
+            response = `no task found in your command`;
+          }
+          break;
+        }
+        case "today": {
+          response = getFormattedDate();
+          break;
+        }
         default:
           break;
       }
@@ -93,25 +126,74 @@ function getName(command) {
   return wordAfter;
 } */
 
-function getTask(command) {
+function getTask(command, wordBeforeTask = "add") {
   const words = command.split(" ");
-  let i = words.indexOf("add") + 1;
+  let i = words.indexOf(wordBeforeTask) + 1;
   let task = "";
   while (i < words.length - 3) {
     task += words[i] + " ";
     ++i;
   }
-
   task.trim();
-
   return task;
 }
 
+function addTask(taskToAdd) {
+  if (myConversation.toDoList === undefined) {
+    myConversation.toDoList = [taskToAdd];
+  } else {
+    myConversation.toDoList.push(taskToAdd);
+  }
+}
+
+function removeFromToDoList(taskToReomve) {
+  if (myConversation.toDoList === undefined)
+    return "Your to do list is empty. So cannot remove.";
+
+  if (myConversation.toDoList.includes(taskToReomve)) {
+    myConversation.toDoList = myConversation.toDoList.splice(
+      myConversation.toDoList.indexOf(taskToReomve),
+      1
+    );
+    return `${taskToReomve} removed from your to do`;
+  } else {
+    return `${taskToReomve} not found in your list`;
+  }
+}
+
+function getFormattedDate() {
+  let today = new Date();
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  return `Today is ${today.getDate()} of ${
+    months[today.getMonth()]
+  } ${today.getFullYear()}`;
+}
 console.log(getReply("What is my name?"));
 
 console.log(getReply("Hello My name is Benjamin. I am from Denmark"));
 console.log(getReply("My name is Hughes."));
 
 console.log(getReply("What is my name?"));
+console.log(getReply("What is on my todo?"));
+console.log(getReply("Remove abcd from my todo"));
+
 console.log(getReply("Add fishing to my todo"));
+console.log(getReply("Add  to my todo"));
 console.log(getReply("Add singing in the shower to my todo"));
+console.log(getReply("What is on my todo?"));
+console.log(getReply("Remove abcd from my todo"));
+console.log(getReply("What day is it today?"));
