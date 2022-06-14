@@ -40,6 +40,11 @@ regexpressions.push({
   type: "mathematics",
 });
 
+regexpressions.push({
+  expression: new RegExp("what is the weather today?", "i"),
+  type: "weather",
+});
+
 function getReply(command) {
   if (arguments.length < 1 || command === "") {
     return "Sorry I didn't hear you";
@@ -129,6 +134,14 @@ function getReply(command) {
         }
         case "mathematics": {
           response = doMaths(command);
+          break;
+        }
+
+        case "weather": {
+          response = getWeather().then((x) => {
+            return x;
+          });
+          //console.log("weather", response);
           break;
         }
 
@@ -254,6 +267,36 @@ function doMaths(command) {
   return response;
 }
 
+/* function getWeather() {
+  const request = new XMLHttpRequest();
+  let response = "";
+  request.open(
+    "GET",
+    "https://api.open-meteo.com/v1/forecast?latitude=55.6763&longitude=12.5681&hourly=temperature_2m,apparent_temperature&current_weather=true&timezone=Europe%2FBerlin"
+  );
+  request.send();
+  request.onload = () => {
+    if (request.status === 200) {
+      let weatherResponse = JSON.parse(request.response);
+      console.log(weatherResponse);
+      response = `Current temperature in copenhagen is ${weatherResponse.current_weather.temperature} degree celsius`;
+      console.log(response);
+      return response;
+    } else {
+      response = `Error occured in fetching the weather details, ${request.status}`;
+      return response;
+    }
+  };
+} */
+
+async function getWeather() {
+  let weatherResponse = await fetch(
+    "https://api.open-meteo.com/v1/forecast?latitude=55.6763&longitude=12.5681&hourly=temperature_2m,apparent_temperature&current_weather=true&timezone=Europe%2FBerlin"
+  );
+  let weatherData = await weatherResponse.json();
+  return `Current temperature in copenhagen is ${weatherData.current_weather.temperature} degree celsius`;
+}
+
 console.log(getReply("What is my name?"));
 console.log(getReply("Hello My name is Benjamin. I am from Denmark"));
 console.log(getReply("My name is Hughes."));
@@ -272,3 +315,5 @@ console.log(getReply("What day is it today?"));
 
 console.log(getReply("what is 3 + 3"));
 console.log(getReply("what is 3 * 3"));
+
+console.log(getReply("what is the weather today?"));
