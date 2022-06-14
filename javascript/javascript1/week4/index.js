@@ -30,6 +30,11 @@ regexpressions.push({
   type: "today",
 });
 
+regexpressions.push({
+  expression: new RegExp("Set [a,\\s]*timer for [0-9]* minute[s]*", "i"),
+  type: "timer",
+});
+
 function getReply(command) {
   if (arguments.length < 1 || command === "") {
     return "Sorry I didn't hear you";
@@ -101,6 +106,23 @@ function getReply(command) {
           response = getFormattedDate();
           break;
         }
+        case "timer": {
+          const minutes =
+            parseInt(getWordAfter(command.toLowerCase(), "timer", 2)) *
+            60 *
+            1000;
+          if (isNaN(minutes)) {
+            response = "Cannot find valid minutes in your command";
+          } else {
+            console.log(minutes);
+            setTimeout(() => {
+              console.log(`Timer ended at ${new Date()}`);
+            }, minutes);
+            response = `Timer started at ${new Date()}`;
+          }
+          break;
+        }
+
         default:
           break;
       }
@@ -120,11 +142,11 @@ function getName(command) {
   const name = words[words.indexOf("name") + 2];
   return name;
 }
-/* function getWordAfter(command, word, nthword) {
+function getWordAfter(command, word, nthword) {
   const words = command.split(" ");
   const wordAfter = words[words.indexOf(word) + nthword];
   return wordAfter;
-} */
+}
 
 function getTask(command, wordBeforeTask = "add") {
   const words = command.split(" ");
@@ -182,6 +204,10 @@ function getFormattedDate() {
     months[today.getMonth()]
   } ${today.getFullYear()}`;
 }
+
+function endOfTimerMessage() {
+  console.log("Timer ended", new Date());
+}
 console.log(getReply("What is my name?"));
 
 console.log(getReply("Hello My name is Benjamin. I am from Denmark"));
@@ -197,3 +223,4 @@ console.log(getReply("Add singing in the shower to my todo"));
 console.log(getReply("What is on my todo?"));
 console.log(getReply("Remove abcd from my todo"));
 console.log(getReply("What day is it today?"));
+console.log(getReply("Set a timer for 1 minute"));
