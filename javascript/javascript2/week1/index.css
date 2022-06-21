@@ -1,0 +1,11 @@
+form {
+  width: 75%;
+  border: 2px solid rgb(160, 12, 12);
+  align-self: center;
+  padding-bottom: 3rem;
+}
+form * {
+  padding-left: 0.75rem;
+  padding-top: 0.75rem;
+  color: rgb(51, 48, 44);
+}

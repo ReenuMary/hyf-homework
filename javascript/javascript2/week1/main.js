@@ -44,3 +44,43 @@ const danishString = "Jeg har en blå bil";
 console.log(getWordAnddanishLetterCount(danishString));
 const danishString2 = "Blå grød med røde bær";
 console.log(getWordAnddanishLetterCount(danishString2));
+
+const spiritAnimalNames = [
+  "Adventurous Wolf",
+  "Mystical Tiger",
+  "Passionate Leopard",
+  "Intuitive Elephant",
+  "Amazing Unicorn",
+  "Victorious Butterfly",
+  "Magical Monkey",
+  "Wild Dragon",
+  "Creative Dolphin",
+  "Courageous Panther",
+  "Exciting Dove",
+  "Speedy Eagle",
+];
+
+function getSpiritAnimalName() {
+  const userName = document.getElementById("user-name").value.trim();
+  const spiritLabel = document.getElementById("lblSpirit");
+
+  if (userName.length === 0) spiritLabel.innerHTML = "Enter your name";
+  else {
+    let index = Math.floor(Math.random() * 12);
+    spiritLabel.innerHTML = `${userName} ${spiritAnimalNames[index]}`;
+  }
+}
+
+function radioClickedButton() {
+  const spiritButton = document.getElementById("btnSpiritAnimal");
+  spiritButton.disabled = false;
+  const userNameTextbox = document.getElementById("user-name");
+  userNameTextbox.removeEventListener("mouseover", getSpiritAnimalName);
+}
+
+function radioClickedMouseOver() {
+  const spiritButton = document.getElementById("btnSpiritAnimal");
+  spiritButton.disabled = true;
+  const userNameTextbox = document.getElementById("user-name");
+  userNameTextbox.addEventListener("mouseover", getSpiritAnimalName);
+}

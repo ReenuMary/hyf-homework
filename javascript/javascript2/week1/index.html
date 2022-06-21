@@ -5,8 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS2 Week1 Homework</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
   </head>
   <body>
+    <form>
+      <div>
+        <label for="user-name">Name</label>
+        <input type="text" id="user-name" />
+      </div>
+      <div>
+        <label id="lblSpirit"></label>
+      </div>
+      <div>
+        <div>
+          <label for="button">Button click</label>
+          <input
+            type="radio"
+            id="button"
+            value="Button"
+            name="modeOfDisplay"
+            checked
+            onchange="radioClickedButton()"
+          />
+        </div>
+        <div>
+          <label for="mouse-over">Mouse over name</label>
+          <input
+            type="radio"
+            id="mouse-over"
+            value="Mouse over"
+            name="modeOfDisplay"
+            onchange="radioClickedMouseOver()"
+          />
+        </div>
+      </div>
+      <div>
+        <input
+          type="button"
+          id="btnSpiritAnimal"
+          value="Find a spirit animal name"
+          onclick="getSpiritAnimalName()"
+        />
+      </div>
+    </form>
     <script src="main.js"></script>
   </body>
 </html>
