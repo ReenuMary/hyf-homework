@@ -18,3 +18,7 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+ul li:nth-child(3n + 1) {
+  font-weight: bolder;
+}
