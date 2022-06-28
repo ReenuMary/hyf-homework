@@ -10,11 +10,23 @@ body {
 body,
 h1,
 h2 {
-  margin: 0;
+  margin: 1rem;
 }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+ul li:nth-child(3n + 1) {
+  font-weight: bolder;
+}
+
+fieldset {
+  width: 40%;
+}
+
+fieldset * {
+  margin: 0.35rem;
 }
