@@ -46,4 +46,24 @@ const moviesRatingTag = movies.map((oneMovie) => {
 const highRatingMovies = movies
   .filter((oneMovie) => oneMovie.rating > 6)
   .map((x) => x.rating);
-console.log(highRatingMovies);
+//console.log(highRatingMovies);
+
+//keywords: Surfer, Alien or Benjamin
+const regExp = new RegExp("Surfer|Benjamin|Alien", "gi");
+const moviesWithKeyWords = movies
+  .filter((oneMovie) => oneMovie.title.match(regExp))
+  .map((x) => x.title);
+//console.log(moviesWithKeyWords);
+
+//6.duplicate words in title
+const duplicateWordMovies = movies.filter((oneMovie) => {
+  const titleWords = oneMovie.title.split(" ");
+  if (
+    titleWords.filter((oneWord, index) => titleWords.indexOf(oneWord) !== index)
+      .length != 0
+  )
+    return oneMovie;
+});
+console.log(duplicateWordMovies);
+
+7;
