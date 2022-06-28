@@ -13,6 +13,9 @@ function renderProducts(products) {
     ulElement.appendChild(createLiElementWithText(`Price : ${product.price}`));
     ulElement.appendChild(createLiElementWithText(`Rating: ${product.rating}`));
   }
+  document.getElementById(
+    "list-count"
+  ).innerHTML = `Total ${products.length} products listed`;
 }
 
 function applyFilterButtonClick() {
@@ -22,10 +25,7 @@ function applyFilterButtonClick() {
   const filter = {};
   if (!isNaN(maxPrice)) filter.maxPrice = maxPrice;
   if (!isNaN(minPrice)) filter.minPrice = minPrice;
-
-  const copyProducts = [...products];
-
-  const filteredProducts = filterProducts(copyProducts, filter);
+  const filteredProducts = filterProducts(products, filter);
   renderProducts(filteredProducts);
 }
 
@@ -50,9 +50,24 @@ function filterProducts(products, filter) {
         );
         break;
       }
+      case "search": {
+        products = products.filter((oneProduct) =>
+          oneProduct.name.match(filter.search)
+        );
+        break;
+      }
     }
   }
   return products;
+}
+
+function searchTextKeyUp() {
+  const searchKeyWord = document.getElementById("search").value;
+  //const copyProducts = getCopyOfProducts();
+  const regEx = new RegExp(`^${searchKeyWord}`, "i");
+  const filter = { search: regEx };
+  const filteredProducts = filterProducts(products, filter);
+  renderProducts(filteredProducts);
 }
 
 renderProducts(products);

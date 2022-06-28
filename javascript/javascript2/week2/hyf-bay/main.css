@@ -30,3 +30,8 @@ fieldset {
 fieldset * {
   margin: 0.35rem;
 }
+
+body input {
+  height: 2rem;
+  margin-bottom: 1rem;
+}
