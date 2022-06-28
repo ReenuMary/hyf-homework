@@ -40,7 +40,28 @@ const moviesRatingTag = movies.map((oneMovie) => {
   return oneMovie;
 });
 //console.log(moviesRatingTag);
+//count of tags
+let countGoodMovies = 0;
+let countAverageMovies = 0;
+let countBadMovies = 0;
+/* moviesRatingTag.forEach((oneMovie) => {
+  if (oneMovie.tag === "Good") ++countGoodMovies;
+  else if (oneMovie.tag === "Average") ++countAverageMovies;
+  else ++countBadMovies;
+});
+ */
 
+moviesRatingTag.reduce((previous, current) => {
+  if (current.tag === "Good") ++countGoodMovies;
+  else if (current.tag === "Average") ++countAverageMovies;
+  else ++countBadMovies;
+}, movies[0]);
+const movieCount = {
+  goodMovies: countGoodMovies,
+  badMovies: countBadMovies,
+  averageMovies: countAverageMovies,
+};
+console.log(movieCount);
 //5. movies rated higher than 6. Now map the movies array to only the rating of the movies.
 
 const highRatingMovies = movies
@@ -66,4 +87,9 @@ const duplicateWordMovies = movies.filter((oneMovie) => {
 });
 console.log(duplicateWordMovies);
 
-7;
+//7. average rating
+let sumRatings = 0;
+movies.reduce((previous, current) => {
+  sumRatings += current.rating;
+}, movies[0]);
+//console.log(`Average rating is ${sumRatings / movies.length}`);
