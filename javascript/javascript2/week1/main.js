@@ -10,10 +10,9 @@ function getShortestWord(danishWords) {
     return "Please provide an array with strings";
   }
   // not checking if all elements are string
-  let shortestWord = danishWords[0];
-  danishWords.reduce((previous, current) => {
-    if (current.length < shortestWord.length) shortestWord = current;
-  });
+  let shortestWord = danishWords.reduce((previous, current) => {
+    return current.length < previous.length ? current : previous;
+  }, danishWords[0]);
   return shortestWord;
 }
 
@@ -25,19 +24,19 @@ function getWordAnddanishLetterCount(danishString) {
 
   const object = { total: 0 };
   const aeCount = (danishString.match(/æ/gi) || []).length;
-  const åCount = (danishString.match(/å/gi) || []).length;
-  const øCount = (danishString.match(/ø/gi) || []).length;
+  const aaCount = (danishString.match(/å/gi) || []).length;
+  const oeCount = (danishString.match(/ø/gi) || []).length;
 
   if (aeCount > 0) {
     object["æ"] = aeCount;
   }
-  if (åCount > 0) {
-    object["å"] = åCount;
+  if (aaCount > 0) {
+    object["å"] = aaCount;
   }
-  if (øCount > 0) {
-    object["ø"] = øCount;
+  if (oeCount > 0) {
+    object["ø"] = oeCount;
   }
-  object.total = aeCount + åCount + øCount;
+  object.total = aeCount + aaCount + oeCount;
   return object;
 }
 const danishString = "Jeg har en blå bil";
