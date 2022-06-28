@@ -28,10 +28,19 @@ fieldset {
 }
 
 fieldset * {
-  margin: 0.35rem;
+  margin: 0.15rem;
 }
 
 body input {
   height: 2rem;
   margin-bottom: 1rem;
+}
+
+input[type="radio"] {
+  vertical-align: middle;
+}
+
+input[type="radio"] + label {
+  vertical-align: text-bottom;
+  color: red;
 }

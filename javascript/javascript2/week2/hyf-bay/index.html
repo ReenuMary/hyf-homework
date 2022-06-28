@@ -35,6 +35,31 @@
           />
         </div>
       </fieldset>
+      <fieldset>
+        <legend>Sort By</legend>
+        <input
+          type="radio"
+          id="sort-by-name"
+          name="sort"
+          checked
+          onclick="sortByNameClicked()"
+        />
+        <label for="sort-by-name">By name</label>
+        <input
+          type="radio"
+          id="sort-by-price"
+          name="sort"
+          onclick="sortByPriceClicked()"
+        />
+        <label for="sort-by-rating">By price</label>
+        <input
+          type="radio"
+          id="sort-by-rating"
+          name="sort"
+          onclick="sortByRatingClicked()"
+        />
+        <label for="sort-by-price">By rating</label>
+      </fieldset>
     </form>
     <input
       type="text"

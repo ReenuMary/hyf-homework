@@ -1,4 +1,5 @@
 const products = getAvailableProducts();
+console.log(products);
 function createLiElementWithText(text) {
   const liElement = document.createElement("li");
   liElement.innerHTML = text;
@@ -70,4 +71,39 @@ function searchTextKeyUp() {
   renderProducts(filteredProducts);
 }
 
-renderProducts(products);
+function sortProducts(products, sortCriteria) {
+  //
+  switch (sortCriteria) {
+    case "name": {
+      products.sort((a, b) =>
+        a.name
+          .toUpperCase()
+          .localeCompare(b.name.toUpperCase(), "en", { sensitivity: "base" })
+      );
+      break;
+    }
+    default: {
+      products.sort(
+        (product1, product2) => product1[sortCriteria] - product2[sortCriteria]
+      );
+      break;
+    }
+  }
+
+  return products;
+}
+function sortByNameClicked() {
+  const sortedProducts = sortProducts(products, "name");
+  renderProducts(sortedProducts);
+}
+function sortByPriceClicked() {
+  const sortedProducts = sortProducts(products, "price");
+  renderProducts(sortedProducts);
+}
+
+function sortByRatingClicked() {
+  const sortedProducts = sortProducts(products, "rating");
+  renderProducts(sortedProducts);
+}
+
+renderProducts(sortProducts(products, "name"));
