@@ -73,9 +73,37 @@ function filterProducts(products, filter) {
 
 function searchTextKeyUp() {
   const searchKeyWord = document.getElementById("search").value;
-  //const copyProducts = getCopyOfProducts();
   const regEx = new RegExp(`^${searchKeyWord}`, "i");
-  const filter = { search: regEx };
+
+  const maxPrice = parseFloat(document.getElementById("search-price").value);
+  const filter = {};
+  if (!isNaN(maxPrice)) {
+    filter.maxPrice = maxPrice;
+  }
+
+  if (searchKeyWord !== "") {
+    const regEx = new RegExp(`^${searchKeyWord}`, "i");
+    filter.search = regEx;
+  }
+  const filteredProducts = filterProducts(products, filter);
+  renderProducts(filteredProducts);
+}
+
+function searchPriceKeyUp() {
+  //document.getElementById("search").value = "";
+
+  const searchKeyWord = document.getElementById("search").value;
+  const filter = {};
+  if (searchKeyWord !== "") {
+    const regEx = new RegExp(`^${searchKeyWord}`, "i");
+    filter.search = regEx;
+  }
+
+  const maxPrice = parseFloat(document.getElementById("search-price").value);
+
+  if (!isNaN(maxPrice)) {
+    filter.maxPrice = maxPrice;
+  }
   const filteredProducts = filterProducts(products, filter);
   renderProducts(filteredProducts);
 }

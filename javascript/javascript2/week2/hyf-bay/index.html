@@ -81,12 +81,19 @@
       <!--END OF SORT-->
     </form>
     <!--SEARCH-->
-    <div>
+    <div class="search-container">
       <input
         type="text"
         id="search"
         onkeyup="searchTextKeyUp()"
         placeholder="search for products here"
+        class="search-text-box"
+      />
+      <input
+        type="number"
+        id="search-price"
+        onkeyup="searchPriceKeyUp()"
+        placeholder="set maximum price"
         class="search-text-box"
       />
     </div>
