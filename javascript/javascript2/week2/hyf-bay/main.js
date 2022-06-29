@@ -1,18 +1,27 @@
 const products = getAvailableProducts();
 console.log(products);
-function createLiElementWithText(text) {
+
+function createLiWithProperties(name, price, rating) {
   const liElement = document.createElement("li");
-  liElement.innerHTML = text;
+  const pName = document.createElement("p");
+  pName.innerHTML = name;
+  const pPrice = document.createElement("p");
+  pPrice.innerHTML = `Price : ${price}`;
+  const pRating = document.createElement("p");
+  pRating.innerHTML = `Rating: ${rating}`;
+
+  liElement.appendChild(pName);
+  liElement.appendChild(pPrice);
+  liElement.appendChild(pRating);
   return liElement;
 }
-
 function renderProducts(products) {
   const ulElement = document.getElementById("products");
   ulElement.innerHTML = "";
   for (const product of products) {
-    ulElement.appendChild(createLiElementWithText(product.name));
-    ulElement.appendChild(createLiElementWithText(`Price : ${product.price}`));
-    ulElement.appendChild(createLiElementWithText(`Rating: ${product.rating}`));
+    ulElement.appendChild(
+      createLiWithProperties(product.name, product.price, product.rating)
+    );
   }
   document.getElementById(
     "list-count"
