@@ -1,0 +1,16 @@
+.filter-container {
+  display: grid;
+  grid-template-columns: [col] 1fr [col] 1.5fr;
+  grid-row: [row] 1fr;
+}
+
+.filter-buttons-container {
+  grid-column: col 2 / span 1;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    width: 50%;
+    margin: auto;
+  }
+}
