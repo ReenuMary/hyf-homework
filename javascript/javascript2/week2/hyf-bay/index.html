@@ -1,0 +1,111 @@
+<head>
+  <title>HyfBay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <link rel="stylesheet" type="text/css" href="header.css" />
+  <link rel="stylesheet" type="text/css" href="filter.css" />
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:400,800"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header>
+    <div class="grid-container-2col">
+      <img src="images/LeafLogo.jpg" alt="Leaves as logo" />
+      <h1>Products garden</h1>
+    </div>
+  </header>
+  <main>
+    <form>
+      <!--FILTER-->
+      <fieldset>
+        <legend>Filter</legend>
+        <div class="filter-container">
+          <label for="min-price">Minimum Price</label>
+          <input type="number" id="min-price" />
+          <label for="max-price">Maximum Price</label>
+          <input type="number" id="max-price" />
+          <div class="filter-buttons-container">
+            <input
+              type="button"
+              id="apply-filter"
+              value="Apply"
+              onclick="applyFilterButtonClick()"
+            />
+            <input
+              type="button"
+              id="clear-filter"
+              value="Clear filter"
+              onclick="clearFilterButtonClick()"
+            />
+          </div>
+        </div>
+      </fieldset>
+      <!--END OF FILTER-->
+      <!--SORT-->
+      <fieldset>
+        <legend>Sort By</legend>
+        <div class="sort-container">
+          <div>
+            <input
+              type="radio"
+              id="sort-by-name"
+              name="sort"
+              checked
+              onclick="sortByNameClicked()"
+            />
+            <label for="sort-by-name">By name</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="sort-by-price"
+              name="sort"
+              onclick="sortByPriceClicked()"
+            />
+            <label for="sort-by-rating">By price</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="sort-by-rating"
+              name="sort"
+              onclick="sortByRatingClicked()"
+            />
+            <label for="sort-by-price">By rating</label>
+          </div>
+        </div>
+      </fieldset>
+      <!--END OF SORT-->
+    </form>
+    <!--SEARCH-->
+    <div class="search-container">
+      <input
+        type="text"
+        id="search"
+        onkeyup="searchTextKeyUp()"
+        placeholder="search for products here"
+        class="search-text-box"
+      />
+      <input
+        type="number"
+        id="search-price"
+        onkeyup="searchPriceKeyUp()"
+        placeholder="set maximum price"
+        class="search-text-box"
+      />
+    </div>
+    <!--END OF SEARCH-->
+    <div class="product-count">
+      <label id="list-count"></label>
+    </div>
+    <ul id="products"></ul>
+  </main>
+  <footer>
+    <ul id="pagination-buttons" class="paging"></ul>
+  </footer>
+  <script src="hyfBayHelpers.js"></script>
+  <script src="main.js"></script>
+</body>

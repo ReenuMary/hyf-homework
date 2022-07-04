@@ -1,0 +1,21 @@
+.grid-container-2col {
+  grid-template-columns: 1fr 3fr;
+  display: grid;
+  height: min-content;
+}
+
+header {
+  background-color: rgb(180, 206, 129);
+  width: 100%;
+}
+
+header img {
+  max-width: 70%;
+  border-radius: 50%;
+  margin: 0.5rem;
+}
+header h1 {
+  color: green;
+
+  align-self: center;
+}
