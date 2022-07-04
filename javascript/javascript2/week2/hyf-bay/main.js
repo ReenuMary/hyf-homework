@@ -39,7 +39,7 @@ function clearFilterButtonClick() {
 }
 
 function filterAndSortProducts(products, filter) {
-  for (let key in filter) {
+  for (const key in filter) {
     switch (key) {
       case "maxPrice": {
         products = products.filter(
@@ -151,7 +151,7 @@ function sortProducts(products, sortCriteria) {
 }
 
 function sortByNameClicked() {
-  let sortedProducts = [];
+  const sortedProducts = [];
   if (filterResultsFlag) {
     sortedProducts = sortProducts(filterResults, "name");
   } else {

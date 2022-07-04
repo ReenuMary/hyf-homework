@@ -1,6 +1,6 @@
 //doubling of odd numbers
 let numbers = [1, 2, 3, 4, 5, 6, 7];
-let newNumbers = numbers.filter((x) => x % 2 != 0).map((x) => x * 2);
+let newNumbers = numbers.filter((x) => x % 2 !== 0).map((x) => x * 2);
 console.log(`The doubled numbers are  ${newNumbers}`);
 
 //Working with movies
@@ -30,7 +30,7 @@ console.log(`count of movies in 80s - ${moviesIn80s.length}`); */
 
 //4.Rating tag   Good (>= 7), Average (>= 4 and < 7), Bad (< 4)
 const moviesRatingTag = movies.map((oneMovie) => {
-  let rating =
+  const rating =
     oneMovie.rating >= 7
       ? "Good"
       : oneMovie.rating >= 4 && oneMovie.rating < 7
