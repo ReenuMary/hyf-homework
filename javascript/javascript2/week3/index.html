@@ -4,11 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
     <title>JS2 Week3 homework</title>
   </head>
   <body>
     <button id="btn-delayed-message">Click</button>
     <button id="btn-log-location">Log location</button>
+    <p id="status"></p>
+    <p id="lbl-latitude"></p>
+    <p id="lbl-longitude"></p>
+    <div id="map"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP-262KXzEx5rHdH5osKBr2Nkkb93e3zc&callback=initMap&v=weekly"
+      defer
+    ></script>
     <script src="index.js"></script>
   </body>
 </html>
