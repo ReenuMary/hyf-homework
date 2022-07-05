@@ -89,3 +89,33 @@ const jokeCreator = (shouldTellFunnyJoke) =>
   shouldTellFunnyJoke ? logFunnyJoke() : logBadJoke();
 
 jokeCreator(false);
+
+// Function as a variable
+const functionNameArray = [fnA, fnB, fnC];
+function fnA() {
+  console.log("fnA called");
+}
+
+function fnB() {
+  console.log("fnB called");
+}
+
+function fnC() {
+  console.log("fnC called");
+}
+
+function callAllFunctions(functionNameArray) {
+  functionNameArray.forEach((element) => element());
+}
+
+callAllFunctions(functionNameArray);
+
+const myFunctionVariable = () => console.log("Function called using variable");
+myFunctionVariable();
+
+const fnFromObject = () => {
+  console.log("Function invoked from object key");
+};
+
+const object = { fnName: fnFromObject };
+object.fnName();

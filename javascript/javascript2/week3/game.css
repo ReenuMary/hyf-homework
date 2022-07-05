@@ -1,0 +1,53 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: auto;
+}
+* {
+  margin: 0.5rem;
+  padding-left: 0.1rem;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-style: italic;
+  font-size: larger;
+}
+
+.game-header {
+  border: 1px solid red;
+  display: grid;
+  justify-items: center;
+}
+
+.btn-class {
+  max-width: fit-content;
+  padding: 0.5rem;
+  background-color: rgb(246, 73, 73);
+  color: azure;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1px;
+}
+
+.grid > div {
+  background-color: white;
+  padding: 10px;
+  height: 40vh;
+}
+
+.border {
+  background-color: gray;
+}
+
+.grid div p {
+  text-align: center;
+  align-self: center;
+}
+
+.inner-box {
+  display: grid;
+  grid-template-columns: 1fr;
+}
