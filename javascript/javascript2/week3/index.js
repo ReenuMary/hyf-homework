@@ -41,8 +41,7 @@ function getAndLogLocation() {
         "lbl-longitude"
       ).innerHTML = `Longitude - ${position.coords.longitude}`;
       statusText.innerHTML = "";
-
-      window.initMap = initMap();
+      displayOSMap(position.coords.latitude, position.coords.longitude);
     }
 
     function locationError(errorMessage) {
@@ -59,13 +58,21 @@ function getAndLogLocation() {
 const btnLocation = document.getElementById("btn-log-location");
 btnLocation.addEventListener("click", getAndLogLocation);
 
-let map;
+function displayOSMap(latitude, longitude) {
+  let mapOptions = {
+    center: [latitude, longitude],
+    zoom: 10,
+  };
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
+  let map = new L.map("map", mapOptions);
+
+  let layer = new L.TileLayer(
+    "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  );
+  map.addLayer(layer);
+
+  let marker = new L.Marker([latitude, longitude]);
+  marker.addTo(map);
 }
 
 function runAfterDelay(delay, callback) {
