@@ -9,11 +9,15 @@ window.onload = function () {
   }
 };
 
-function renderConfetti(elementId) {
-  var confettiElement = document.getElementById(elementId);
-  var confettiSettings = { target: confettiElement };
+function renderConfetti(confettiSettings) {
+  // var confettiElement = document.getElementById(elementId);
+  //var confettiSettings = { target: "s-canvas" };
   var confetti = new ConfettiGenerator(confettiSettings);
   confetti.render();
+}
+
+function addTextToElement(elementId, text) {
+  document.getElementById(elementId).innerHTML = text;
 }
 
 function endOfGame() {
@@ -26,15 +30,15 @@ function endOfGame() {
       "Click start and press 'l' to play";
   } else {
     if (sCounter === lCounter) {
-      document.getElementById("s-message").innerHTML = "Equal score";
-      document.getElementById("l-message").innerHTML = "Equal score";
+      addTextToElement("s-message", "Equal score");
+      addTextToElement("l-message", "Equal score");
     } else {
       if (sCounter > lCounter) {
         document.getElementById("s-message").innerHTML = "You Won !!!";
-        // renderConfetti("s-canvas");
+        renderConfetti({ target: "s-canvas" });
       } else {
         document.getElementById("l-message").innerHTML = "You Won !!!";
-        // renderConfetti("l-canvas");
+        renderConfetti({ target: "l-canvas" });
       }
     }
   }
@@ -81,6 +85,7 @@ function btnStartGameClick() {
     document.getElementById(
       "count-down"
     ).innerHTML = `Time left ${gameDurationSeconds} seconds.`;
+    //Clear confetti
 
     setTimeout(endOfGame, gameDurationSeconds * 1000);
     intervalId = setInterval(timeLeftCounter, 1000);
