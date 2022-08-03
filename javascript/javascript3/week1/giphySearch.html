@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search for giphy</title>
+    <link rel="stylesheet" href="giphySearch.css" />
+  </head>
+  <body>
+    <h1>Giphy Searcher</h1>
+    <form>
+      <fieldset>
+        <legend>Search</legend>
+        <input
+          type="text"
+          placeholder="enter keyword"
+          id="search-text"
+          required
+        />
+        <input type="number" placeholder="no of gifs" id="gif-count" />
+        <input type="button" id="btn-gif" value="Search for gifs" />
+      </fieldset>
+    </form>
+    <div>
+      <!--  <img
+        src="https://media0.giphy.com/media/BEob5qwFkSJ7G/giphy-downsized-small.mp4?cid=6d0aaf6622g5z0rw7my46gza8zl8rn56c8c4rvuy36g9hqjy&rid=giphy-downsized-small.mp4&ct=g"
+      />-->
+      <ul id="gif-ul"></ul>
+    </div>
+    <script src="giphySearch.js"></script>
+  </body>
+</html>
