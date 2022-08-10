@@ -1,0 +1,20 @@
+body {
+  margin: auto;
+  background-color: bisque;
+  color: brown;
+  width: max-content;
+}
+
+div {
+  border: 1px solid brown;
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}

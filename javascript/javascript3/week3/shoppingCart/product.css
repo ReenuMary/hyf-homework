@@ -1,0 +1,21 @@
+body {
+  margin: auto;
+  background-color: bisque;
+  color: brown;
+  width: max-content;
+}
+
+main {
+  border: 1px solid brown;
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 5fr 3fr;
+  gap: 10px;
+}
