@@ -46,12 +46,22 @@ class ShoppingCart {
   }
 
   removeProduct(product) {
+    let searchResultIndex = -1;
     if (product instanceof Product) {
-      const index = this.products.indexOf(product);
-      if (index !== -1) {
-        this.products.splice(index, 1);
+      this.products.forEach((oneProduct, index) => {
+        if (
+          oneProduct.name === product.name &&
+          oneProduct.price === product.price
+        ) {
+          searchResultIndex = index;
+        }
+      });
+
+      if (searchResultIndex !== -1) {
+        this.products.splice(searchResultIndex, 1);
+        console.log(`${JSON.stringify(product)} removed from shopping cart`);
       } else {
-        console.log(`${product} not found in shopping cart`);
+        console.log(`${JSON.stringify(product)} not found in shopping cart`);
       }
     } else {
       console.warn(
@@ -64,11 +74,10 @@ class ShoppingCart {
     const searchResult = this.products.filter(
       (product) => product.name === productName
     );
-    //const product = this.products.find((x) => x.name === productName);
     if (searchResult.length === 0) {
       console.log(`${productName} not found in the shopping cart`);
     } else {
-      console.log(`${searchResult} `);
+      console.log(`${JSON.stringify(searchResult)} found `);
     }
   }
 
@@ -116,18 +125,17 @@ class ShoppingCart {
   }
 
   getUser(user) {
-    /*   const userPromise = new Promise((resolve) => {
-      const url = `https://jsonplaceholder.typicode.com/users/${user.id}`;
-      return fetch(url);
-    });
-
-    return userPromise; */
-
     return fetch(`https://jsonplaceholder.typicode.com/users/${user.id}`).then(
       (response) => response
     );
   }
 }
+
+function currencyChange() {
+  shoppingCart.renderProducts();
+}
+
+//using local storage to get shopping cart details from shopping list page
 const cart = JSON.parse(localStorage.getItem("shoppingCart") || "[]");
 console.log(cart);
 const shoppingCart = new ShoppingCart();
@@ -138,18 +146,30 @@ cart.products.forEach((oneProduct) => {
   );
 });
 
-function currencyChange() {
-  //alert(document.getElementById("currency").value);
-  shoppingCart.renderProducts();
-}
-
 const cartOwner = new User(2, "Antonette");
 shoppingCart.renderProducts();
+
 document.getElementById("currency").addEventListener("change", currencyChange);
+
 /*
+//for unit testing
 const shoppingCart = new ShoppingCart();
 const flatscreen = new Product("flat-screen", 5000);
 shoppingCart.addProduct(flatscreen);
 shoppingCart.addProduct(new Product("PC", 3000));
-console.log(shoppingCart.products);
-shoppingCart.renderProducts();*/
+shoppingCart.addProduct(new Product("abc", 200));
+shoppingCart.addProduct(new Product("XYZ", 2500));
+shoppingCart.addProduct(new Product("ASD", 200));
+
+console.log(shoppingCart);
+
+const cartOwner = new User(2, "Antonette");
+shoppingCart.renderProducts();
+
+shoppingCart.removeProduct("bc");
+shoppingCart.removeProduct(new Product("bc", 200));
+shoppingCart.removeProduct(new Product("abc", 200));
+console.log(shoppingCart);
+
+shoppingCart.searchProduct("flat");
+shoppingCart.searchProduct("flat-screen");*/
