@@ -28,6 +28,7 @@ function btnGifClick() {
         displaySearchResult(responseJson);
       });
   } else {
+    console.log(`Enter search keyword`);
   }
 }
 
