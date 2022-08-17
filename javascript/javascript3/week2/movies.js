@@ -1,7 +1,7 @@
 function getBadMovies(movieJson) {
-  const badMovies = movieJson
-    .filter((movie) => movie.votes < 20000)
-    .filter((movie) => movie.rating < 6);
+  const badMovies = movieJson.filter(
+    (movie) => movie.votes < 20000 && movie.rating < 6
+  );
   return badMovies;
 }
 
@@ -14,12 +14,13 @@ function getMovies() {
     "https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0ae8d0a4/raw/02d8bc9ec9a73e463b13c44df77a87255def5ab9/movies.json"
   )
     .then((response) => response.json())
-    .then((responseJson) => {
-      console.log(responseJson);
-      console.log("BAD MOVIES");
-      console.log(getBadMovies(responseJson));
-      console.log("Movies After 2000");
-      console.log(getMoviesAfterYear(responseJson, 2000));
+    .then((responseObj) => {
+      console.log(responseObj);
+      console.log("BAD MOVIES: \n", getBadMovies(responseObj));
+      console.log(
+        "Movies After 2000 : \n",
+        getMoviesAfterYear(responseObj, 2000)
+      );
     });
 }
 getMovies();
@@ -70,7 +71,7 @@ getPromise(3)
     )
   )
   .then((response) => response.json())
-  .then((responseJson) => console.log(responseJson));
+  .then((responseObj) => console.log(responseObj));
 
 //Fetching and waiting using async await
 async function stepByStepAsync() {
