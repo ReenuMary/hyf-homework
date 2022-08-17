@@ -81,8 +81,8 @@ async function stepByStepAsync() {
   const step2 = await fetch(
     "https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0ae8d0a4/raw/02d8bc9ec9a73e463b13c44df77a87255def5ab9/movies.json"
   );
-  const step2Json = await step2.json();
+  const step2Obj = await step2.json();
 
-  console.log(step2Json);
+  console.log(step2Obj);
 }
 stepByStepAsync();
