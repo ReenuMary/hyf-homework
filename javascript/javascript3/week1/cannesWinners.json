@@ -1,0 +1,33 @@
+[
+  {
+    "category": "Feature Films",
+    "award": "Palme d'or",
+    "film": [{ "filmName": "Triangle of Sadness", "director": "Ruben Ostlund" }]
+  },
+  {
+    "category": "Feature Films",
+    "award": "Grand Prix",
+    "film": [
+      { "filmName": "Close", "director": "Lukas Dhont" },
+      { "filmName": "Stars At Noon", "director": "Claire Denis" }
+    ]
+  },
+  {
+    "category": "Feature Films",
+    "award": "Best Director",
+    "filmName": "Decision to Leave",
+    "winner": "Park Chan Wook"
+  },
+  {
+    "category": "Feature Films",
+    "award": "Best Screenplay",
+    "filmName": "Boy from heaven",
+    "winner": "Tarik Saleh"
+  },
+  {
+    "category": "Short Films",
+    "award": "Palme D'or",
+    "filmName": "The water murmers",
+    "director": "Jianying Chen"
+  }
+]

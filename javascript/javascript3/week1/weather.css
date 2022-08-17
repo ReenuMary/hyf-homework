@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(238, 246, 243);
+  font-size: larger;
+  margin: auto;
+}
+
+* {
+  margin: 0.5rem;
+  padding-left: 0.1rem;
+  box-sizing: border-box;
+}
+
+select {
+  width: 10rem;
+  padding: 0.3rem;
+}
+
+input[type="button"] {
+  width: 6rem;
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+h1 + div {
+  border: 1px solid black;
+}
+
+.weather-detail-box {
+  border: 1px solid black;
+}
+
+#weathermap {
+  width: 100%;
+  height: 40vh;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    width: 40%;
+  }
+}
