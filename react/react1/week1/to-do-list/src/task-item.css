@@ -1,0 +1,22 @@
+.task {
+  background-color: rgb(246, 241, 237);
+  color: firebrick;
+  width: max-content;
+}
+
+.task-box {
+  width: 25%;
+  border: 1px solid firebrick;
+  margin: 2rem;
+}
+
+.deadline {
+  background-color: red;
+  color: beige;
+  width: max-content;
+}
+
+.task-list-ul {
+  list-style-type: " ★ ";
+  color: brown;
+}
