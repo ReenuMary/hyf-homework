@@ -48,9 +48,9 @@ function createCircle() {
   const randomRadius = getRandomInt(1, 25);
   const canvas = document.getElementById("art-canvas");
   const x = Math.random() * canvas.width;
-  var y = Math.random() * canvas.height;
+  const y = Math.random() * canvas.height;
 
-  circleOne = new Circle(x, y, randomRadius, random_rgba());
+  const circleOne = new Circle(x, y, randomRadius, random_rgba());
   circleOne.RenderCircle();
 }
 setInterval(createCircle, 100);
