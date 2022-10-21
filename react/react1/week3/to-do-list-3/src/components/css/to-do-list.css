@@ -1,0 +1,17 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 25%;
+  border: 1px solid firebrick;
+  margin: 2rem;
+}
+
+.container * {
+  margin: 4px;
+}
+
+.errorMsg {
+  color: red;
+  font-size: x-small;
+  font-style: italic;
+}
